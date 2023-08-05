@@ -1,0 +1,37 @@
+/*write a c code to rotate an array k number of times*/
+
+#include <stdio.h>
+int reverse(int[], int, int);
+int rotate(int[], int, int);
+int main() {
+  int n, k;
+  printf("Enter size:");
+  scanf("%d", &n);
+  int arr[n];
+  printf("Enter elements:");
+  for (int j = 0; j < n; j++) {
+    scanf("%d", &arr[j]);
+  }
+  printf("Enter the numbner of times for reverse");
+  scanf("%d", &k);
+  rotate(arr, n, k);
+  printf("DISPLAY:");
+  for (int i = 0; i < n; i++) {
+    printf("%d ", arr[i]);
+  }
+}
+
+int reverse(int arr[], int n, int j) {
+
+  for (int i = j; i < n / 2; i++) {
+    int temp = arr[i];
+    arr[i] = arr[n - i - 1];
+    arr[n - i - 1] = temp;
+  }
+}
+int rotate(int arr[], int n, int k) {
+
+  reverse(arr, n, 0);
+  reverse(arr, 0, n - k);
+  reverse(arr, n - k, n);
+  g
